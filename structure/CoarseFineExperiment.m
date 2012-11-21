@@ -33,7 +33,7 @@ j0=params.coarsestScale;
 
 vec = @(x) x(:);
 mat = @(x) reshape(x,n1,n2);
-W_op=opWavelet(n1,n2,params.qmf,levels);
+W_op=opWavelet(n1,n2,'Custom',params.qmf,levels);
 
 
 fine=true(n1,n2);
