@@ -66,6 +66,9 @@ case 'tv_l1magic'
 case 'tv_tfocs'
    params.sparseBasis=W_op';
    make_coder=@(N,M,parms) codec_tv_tfocs(N,M,parms);   
+case 'spgl1'
+   make_coder=@(N,M,parms) codec_spgl1(N,M,parms);
+
 end
 coder=make_coder(N,M,params);   
   

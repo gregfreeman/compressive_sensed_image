@@ -9,7 +9,7 @@ clear data;
 params=struct();
 params.delta=0.3;
 params.qmf = MakeONFilter('Symmlet',8);
-params.reconstruct = 'lasso_tfocs';
+params.reconstruct = 'spgl1';
 [outputImage,results]=CSUnstructuredWaveletExperiment(img,params);
 
 subplot(1,2,1)
