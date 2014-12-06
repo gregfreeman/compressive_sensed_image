@@ -18,17 +18,21 @@ end
 
 [n1,n2]=size(inputImage);
 if(n1~=n2)
-    error('expect image with equal dimensions for each side')
+%     error('expect image with equal dimensions for each side')
 end
-n1log2=log2(n1);
+n1log2=log2(min(n1,n2));
 if(n1log2~=floor(n1log2))
-    error('expect image a size of 2 power')
+%     error('expect image a size of 2 power')
 end
+
+maxlevels1=sum(factor(n1)==2);
+maxlevels2=sum(factor(n2)==2);
     
 delta = params.delta;
 N=n1*n2;
 M=floor(delta * N);
-levels = n1log2-params.coarsestScale;
+levels = floor(n1log2)-params.coarsestScale;
+levels=min([levels,maxlevels1,maxlevels2]);
 j0=params.coarsestScale;
 
 vec = @(x) x(:);
